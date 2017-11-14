@@ -1,0 +1,33 @@
+inherit kf5
+
+NAME="kf5-libkgeomap"
+VERSION=17.08.3
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="KDE geomapping library"
+DESCRIPTION="Libkgeomap is a wrapper around world map components as Marble,
+OpenstreetMap and GoogleMap, for browsing and arranging photos on a map."
+
+PATCH_URI="
+	17.08-dllexport.patch
+	17.08-soversion.patch
+"
+
+PKG_NAMES="libKF5KGeoMap10 libKF5KGeoMap-common libKF5KGeoMap-devel"
+libKF5KGeoMap10_REQUIRES="libKF5KGeoMap-common"
+libKF5KGeoMap10_CONTENTS="
+	usr/bin/cygKF5KGeoMap-10.dll
+"
+libKF5KGeoMap_common_CONTENTS="
+	usr/share/doc/${NAME}
+	usr/share/libkgeomap/
+	usr/share/locale/*/LC_MESSAGES/libkgeomap.mo
+"
+libKF5KGeoMap_devel_REQUIRES="libQt5Core-devel libQt5Gui-devel"
+libKF5KGeoMap_devel_CONTENTS="
+	usr/bin/libkgeomap_demo.exe
+	usr/include/KF5/KGeoMap/
+	usr/include/KF5/libkgeomap_version.h
+	usr/lib/cmake/KF5KGeoMap/
+	usr/lib/libKF5KGeoMap.dll.a
+"
